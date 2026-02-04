@@ -113,6 +113,14 @@ git clone https://github.com/fanghe-ma/atacama-handbook.git
 cd atacama-handbook
 ```
 
+#### Getting Private Assets
+
+Some files are **not tracked by git** for privacy reasons:
+- `assets/participants/` — Participant and VF headshots
+- `private_data/` — Spreadsheets with personal information
+
+**To build the PDF or make edits, contact Frank Ma to get these assets.** Place them in the appropriate directories before compiling.
+
 #### Making Changes
 
 1. **Pull the latest changes** before you start working:
@@ -162,7 +170,7 @@ git push origin main
 **Adding new images:**
 ```bash
 git pull origin main
-# Add image to figures/photos/
+# Add image to assets/photos/
 # Give the image an informative name, then recruit the help of 
 # LLMs to insert them into the appropriate section
 # Reference it in the appropriate section file
@@ -196,7 +204,7 @@ atacama-handbook/
 │   ├── 05-cases.tex          # Case studies
 │   ├── 06-provokers.tex      # Conflict management and AAR
 │   └── 07-reflection.tex     # Pre/post reflections, daily prompts, notes
-├── figures/
+├── assets/
 │   └── photos/               # Images (landscapes, wildlife, knots, maps, etc.)
 └── sample/                   # Reference materials
 ```
@@ -228,10 +236,10 @@ Edit `sections/07-reflection.tex` to:
 
 ### Adding Images
 
-Place images in `figures/photos/` and reference them in the appropriate section file:
+Place images in `assets/photos/` and reference them in the appropriate section file:
 
 ```latex
-\includegraphics[width=0.85\linewidth]{figures/photos/image_name.jpg}
+\includegraphics[width=0.85\linewidth]{assets/photos/image_name.jpg}
 ```
 
 ## License

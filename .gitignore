@@ -14,3 +14,7 @@
 *~
 *.swp
 *.swo
+
+# Private data
+private_data/
+assets/participants/

@@ -81,6 +81,8 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 
 % Custom section numbering: 1, 2, ...
 \renewcommand{\thesection}{\arabic{section}}
@@ -116,5 +118,21 @@
   \addtocounter{linedline}{1}%
   \repeat
 }
+% Square photo command (crops image to square, centered)
+% Detects orientation and scales to cover the square, then clips
+\newcommand{\squarephoto}[2][5cm]{%
+  \begingroup
+  \setbox0=\hbox{\includegraphics[width=#1]{#2}}%
+  \ifdim\ht0<#1\relax
+    % Image is landscape (shorter than wide when scaled to width=#1)
+    \setbox0=\hbox{\includegraphics[height=#1]{#2}}%
+  \fi
+  \begin{tikzpicture}
+    \clip (0,0) rectangle (#1,#1);
+    \node[anchor=center,inner sep=0] at (0.5*#1,0.5*#1) {\copy0};
+  \end{tikzpicture}%
+  \endgroup
+}
+
 % Load custom environments (callouts)
 \input{environments}
