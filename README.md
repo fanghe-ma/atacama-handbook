@@ -154,7 +154,7 @@ cd atacama-handbook
 git pull origin main
 # Edit sections/01-people.tex
 pdflatex main.tex  # Test your changes
-git add sections/01-people.tex
+git add .
 git commit -m "Add bio for new participant"
 git push origin main
 ```
@@ -163,9 +163,11 @@ git push origin main
 ```bash
 git pull origin main
 # Add image to figures/photos/
+# Give the image an informative name, then recruit the help of 
+# LLMs to insert them into the appropriate section
 # Reference it in the appropriate section file
 pdflatex main.tex  # Test your changes
-git add figures/photos/new_image.jpg sections/02-place.tex
+git add .
 git commit -m "Add landscape photo to Place section"
 git push origin main
 ```
