@@ -109,7 +109,7 @@ The output will be generated as `main.pdf` (61 pages).
 Clone the repository to your local machine:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/fanghe-ma/atacama-handbook.git
 cd atacama-handbook
 ```
 
