@@ -1,0 +1,120 @@
+% Atacama Field Guide — Preamble
+% Wharton Leadership Ventures — palette, headings, layout
+
+% Page geometry
+\usepackage[margin=1in, headheight=17pt]{geometry}
+
+% Typography
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% ----- Palette (Atacama / desert field guide) -----
+\usepackage{xcolor}
+\definecolor{atacamaSand}{RGB}{196,167,125}
+\definecolor{atacamaTerracotta}{RGB}{168,92,60}
+\definecolor{atacamaSage}{RGB}{109,120,92}
+\definecolor{atacamaSky}{RGB}{91,124,153}
+\definecolor{atacamaDark}{RGB}{61,44,41}
+\definecolor{atacamaCream}{RGB}{248,244,238}
+\definecolor{atacamaWarmWhite}{RGB}{252,250,247}
+
+% Headers and footers (after palette so colors are defined)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{\sffamily\small\color{atacamaTerracotta} Atacama Field Guide}
+\fancyhead[R]{\sffamily\small\color{atacamaDark} Wharton Leadership Ventures}
+\fancyfoot[C]{\sffamily\small\color{atacamaDark} \thepage}
+\fancyfoot[L]{\sffamily\small\color{atacamaSage} March 2026}
+\fancyfoot[R]{\sffamily\small\color{atacamaSage} Reflections \& Notes}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\sffamily\small\color{atacamaDark} \thepage}
+  \fancyfoot[L]{\sffamily\small\color{atacamaSage} March 2026}
+  \fancyfoot[R]{\sffamily\small\color{atacamaSage} Reflections \& Notes}
+}
+
+% Boxes and design (tcolorbox)
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+% TikZ positioning library for node placement
+\usetikzlibrary{positioning}
+
+% Headings and TOC
+\usepackage{titlesec}
+\usepackage{tocloft}
+
+% Section: terracotta, large, rule below
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries\color{atacamaTerracotta}}
+  {\thesection}{0.8em}{}
+  [\titlerule]
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+
+% Subsection: dark, sans
+\titleformat{\subsection}
+  {\normalfont\sffamily\large\bfseries\color{atacamaDark}}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.4em}
+
+% Subsubsection: sage, sans
+\titleformat{\subsubsection}
+  {\normalfont\sffamily\normalsize\bfseries\color{atacamaSage}}
+  {\thesubsubsection}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{0.6em}{0.3em}
+
+% TOC styling
+\renewcommand{\contentsname}{\sffamily\large\color{atacamaDark} Contents}
+\renewcommand{\cftsecfont}{\sffamily\color{atacamaDark}}
+\renewcommand{\cftsecpagefont}{\sffamily\color{atacamaTerracotta}}
+
+% Lists and spacing
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% Tables and figures
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+
+% Custom section numbering: 1, 2, ...
+\renewcommand{\thesection}{\arabic{section}}
+
+% Hyperlinks (match palette)
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=atacamaTerracotta,
+  urlcolor=atacamaSky,
+  citecolor=atacamaSage,
+  pdftitle={Atacama Field Guide},
+  pdfauthor={Wharton Leadership Ventures},
+}
+
+% Lined space for reflection / notes (approx. one page of lines)
+\newcounter{linedline}
+\newcommand{\linedpage}{%
+  \par\vspace{0.8cm}%
+  \setcounter{linedline}{0}%
+  \loop\ifnum\value{linedline}<38%
+  \noindent\rule{\linewidth}{0.25pt}\\[\smallskipamount]%
+  \addtocounter{linedline}{1}%
+  \repeat
+  \vfill
+}
+
+% Full pages of lines without vfill (for consecutive multi-page sections)
+\newcommand{\linedpages}[1]{%
+  \setcounter{linedline}{0}%
+  \loop\ifnum\value{linedline}<#1%
+  \noindent\rule{\linewidth}{0.25pt}\\[\smallskipamount]%
+  \addtocounter{linedline}{1}%
+  \repeat
+}
+% Load custom environments (callouts)
+\input{environments}
