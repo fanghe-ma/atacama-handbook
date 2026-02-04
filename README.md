@@ -83,9 +83,9 @@ pdflatex --version
 For editing `.tex` files, we recommend:
 
 - **[Visual Studio Code](https://code.visualstudio.com/)** with [LaTeX Workshop extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) (cross-platform, beginner-friendly)
-- **[Sublime Text](https://www.sublimetext.com/)** with LaTeXTools package
+<!-- - **[Sublime Text](https://www.sublimetext.com/)** with LaTeXTools package
 - **[TeXShop](https://pages.uoregon.edu/koch/texshop/)** (macOS only, comes with MacTeX)
-- **[Overleaf](https://www.overleaf.com/)** (online, no installation needed, but requires syncing with Git)
+- **[Overleaf](https://www.overleaf.com/)** (online, no installation needed, but requires syncing with Git) -->
 
 ## Building the PDF
 
