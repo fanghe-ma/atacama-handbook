@@ -14,6 +14,79 @@ This handbook provides essential information for participants in the Atacama Des
 - Conflict management strategies
 - Daily reflection prompts and personal notes pages
 
+## Setup for New Users
+
+### Installing Git (First Time)
+
+If you've never used Git before, you'll need to install it:
+
+**macOS:**
+```bash
+# Using Homebrew (recommended)
+brew install git
+
+# Or download from https://git-scm.com/download/mac
+```
+
+**Windows:**
+- Download Git from [git-scm.com](https://git-scm.com/download/win)
+- Run the installer (use default settings)
+
+**Linux:**
+```bash
+# Ubuntu/Debian
+sudo apt-get install git
+
+# Fedora
+sudo dnf install git
+```
+
+**Configure Git** (first time only):
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+**Verify installation:**
+```bash
+git --version
+```
+
+### Installing LaTeX (First Time)
+
+You need a LaTeX distribution to compile the handbook:
+
+**macOS:**
+- Download and install [MacTeX](https://www.tug.org/mactex/) (3.9 GB)
+- Or install BasicTeX (smaller, 80 MB): `brew install basictex`
+
+**Windows:**
+- Download and install [MiKTeX](https://miktex.org/download)
+- Or install [TeX Live](https://www.tug.org/texlive/windows.html)
+
+**Linux:**
+```bash
+# Ubuntu/Debian
+sudo apt-get install texlive-full
+
+# Fedora
+sudo dnf install texlive-scheme-full
+```
+
+**Verify installation:**
+```bash
+pdflatex --version
+```
+
+### Recommended Text Editors
+
+For editing `.tex` files, we recommend:
+
+- **[Visual Studio Code](https://code.visualstudio.com/)** with [LaTeX Workshop extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) (cross-platform, beginner-friendly)
+- **[Sublime Text](https://www.sublimetext.com/)** with LaTeXTools package
+- **[TeXShop](https://pages.uoregon.edu/koch/texshop/)** (macOS only, comes with MacTeX)
+- **[Overleaf](https://www.overleaf.com/)** (online, no installation needed, but requires syncing with Git)
+
 ## Building the PDF
 
 ### Requirements
@@ -28,6 +101,81 @@ pdflatex main.tex
 ```
 
 The output will be generated as `main.pdf` (61 pages).
+
+### Collaborating with Git
+
+#### First Time Setup
+
+Clone the repository to your local machine:
+
+```bash
+git clone <repository-url>
+cd atacama-handbook
+```
+
+#### Making Changes
+
+1. **Pull the latest changes** before you start working:
+   ```bash
+   git pull origin main
+   ```
+
+2. **Make your edits** to the `.tex` files in your text editor or IDE
+
+3. **Test your changes** by building the PDF:
+   ```bash
+   pdflatex main.tex
+   ```
+   Review the output `main.pdf` to ensure your changes look correct.
+
+4. **Stage your changes**:
+   ```bash
+   git add .
+   ```
+   Or stage specific files:
+   ```bash
+   git add sections/01-people.tex
+   ```
+
+5. **Commit your changes** with a descriptive message:
+   ```bash
+   git commit -m "Update participant bios for 2026 cohort"
+   ```
+
+6. **Push your changes** to the remote repository:
+   ```bash
+   git push origin main
+   ```
+
+#### Common Workflows
+
+**Updating participant bios:**
+```bash
+git pull origin main
+# Edit sections/01-people.tex
+pdflatex main.tex  # Test your changes
+git add sections/01-people.tex
+git commit -m "Add bio for new participant"
+git push origin main
+```
+
+**Adding new images:**
+```bash
+git pull origin main
+# Add image to figures/photos/
+# Reference it in the appropriate section file
+pdflatex main.tex  # Test your changes
+git add figures/photos/new_image.jpg sections/02-place.tex
+git commit -m "Add landscape photo to Place section"
+git push origin main
+```
+
+#### Tips
+
+- Always pull before starting work to avoid merge conflicts
+- Commit frequently with clear, descriptive messages
+- Test your changes by building the PDF before pushing
+- If you encounter conflicts, reach out to the team for help
 
 ## Project Structure
 
