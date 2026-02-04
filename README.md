@@ -115,11 +115,11 @@ cd atacama-handbook
 
 #### Getting Private Assets
 
-Some files are **not tracked by git** for privacy reasons:
-- `assets/participants/` — Participant and VF headshots
-- `private_data/` — Spreadsheets with personal information
+Some files are **not tracked by git**:
+- `assets/participants/`
+- `private_data/`
 
-**To build the PDF or make edits, contact Frank Ma to get these assets.** Place them in the appropriate directories before compiling.
+**To build the PDF or make edits, reach out via email to these assets.** Place them in the appropriate directories before compiling.
 
 #### Making Changes
 
